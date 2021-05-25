@@ -16,9 +16,16 @@ export class ExemplosPipesComponent implements OnInit {
     url: 'https://www.amazon.com.br/dp/B00OYTCT02/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1'
   };
 
+  livros = ['Angular 2', 'Java 8'];
+  filtro!: string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  addCurso(value: string): void {
+    this.livros.push(value);
+    console.log('adding course: ' + value + this.livros);
+  }
 }
