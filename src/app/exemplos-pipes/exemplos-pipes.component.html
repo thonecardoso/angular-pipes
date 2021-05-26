@@ -9,10 +9,36 @@
 <p>Livro: {{livro | json}}</p>
 
 <input type="text" [(ngModel)]="filtro" placeholder="Filtro">
-<br>
-<ul>
-  <li *ngFor="let item of livros | filtroArray:filtro">
-    {{item}}
-  </li>
-</ul>
 <input type="text" (keyup.enter)="addCurso(novoValor.value)" #novoValor placeholder="Adicionar Curso">
+<div class="container">
+  <div class="flex">
+  <div>
+    <h5>Pipe puro</h5>
+    <br>
+    <ul>
+      <li *ngFor="let item of livros | filtroArray:filtro">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h5>Pipe Impuro</h5>
+    <br>
+    <ul>
+      <li *ngFor="let item of livros | filtroArrayImpuro:filtro">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h5>Maneira correta de usar filtro nos projetos</h5>
+    <br>
+    <ul>
+      <li *ngFor="let item of getCursos()">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+</div>
+</div>

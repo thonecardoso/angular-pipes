@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -19,7 +19,8 @@ export class ExemplosPipesComponent implements OnInit {
   livros = ['Angular 2', 'Java 8'];
   filtro!: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -27,5 +28,19 @@ export class ExemplosPipesComponent implements OnInit {
   addCurso(value: string): void {
     this.livros.push(value);
     console.log('adding course: ' + value + this.livros);
+  }
+
+  getCursos() {
+    if (this.livros.length === 0 || this.filtro === undefined
+      || this.filtro.trim() === '') {
+      return this.livros;
+    }
+
+    return this.livros.filter((v: string) => {
+      if (v.toLocaleLowerCase().indexOf(this.filtro.toLocaleLowerCase()) >= 0) {
+        return true;
+      }
+      return false;
+    });
   }
 }
